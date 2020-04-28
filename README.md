@@ -1,2 +1,2 @@
-# shiny_drc
+# shiny-drc
 Shiny app for dose-response curves
