@@ -1,0 +1,29 @@
+---
+title: "Dose-Response Curves"
+output: html_document
+params:
+  drm_obj: NA
+  cex: NA
+  lwd: NA
+  log_scale: NA
+---
+
+```{r setup, include=FALSE}
+library(drc)
+```
+
+
+```{r, echo=FALSE}
+summary(params$drm_obj)
+```
+
+```{r, echo=FALSE, fig.width=10}
+plot(params$drm_obj, 
+     col = TRUE, 
+     log = params$log_scale,
+     cex = params$cex,
+     cex.lab = params$cex,
+     cex.axis = params$cex,
+     lwd = params$lwd)
+```
+
