@@ -1,0 +1,12 @@
+name: shiny-drc
+title: shiny-drc
+username:
+account: brentscott93
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2203157
+bundleId: 3077713
+url: https://brentscott93.shinyapps.io/shiny-drc/
+when: 1588093777.88657
+asMultiple: FALSE
+asStatic: FALSE

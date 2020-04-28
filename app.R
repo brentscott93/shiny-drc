@@ -90,7 +90,7 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
       
       
       
-      div(style="display:inline-block; width: 220px", 
+      div(style="display:inline-block; width: 150px", 
           actionBttn(
             inputId = "fit_button",
             label = "Fit & Plot",
@@ -98,10 +98,10 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
             color = "danger",
             block = T)
       ),
-      div(style="display:inline-block; width: 220px",
+      div(style="display:inline-block; width: 150px",
           
           downloadBttn("report", 
-                       "Download .Rmd",
+                       "Download",
                        style = "unite", 
                        color = "default",
                        block = T)
