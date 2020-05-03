@@ -184,6 +184,18 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                                   value = 2,
                                                   step = 0.25
                                                 ))),
+                           
+                           div(style="display: inline-block;vertical-align:top; width: 200px;",
+                               conditionalPanel("input.response != null &&
+                                             input.response.length > 0 ",
+                                                sliderInput(
+                                                  inputId = "xlim_upper",
+                                                  label = "X-axis upper limit", 
+                                                  min = 0,
+                                                  max = 1000,
+                                                  value = 350,
+                                                  step = 25
+                                                ))),
                   )
       ) #tabsetPanel close 
     )#mainPanel close
@@ -432,7 +444,8 @@ server <- function(input, output) {
          cex = as.numeric(input$drm_plot_cex),
          cex.lab = as.numeric(input$drm_plot_cex),
          cex.axis = as.numeric(input$drm_plot_cex),
-         lwd = as.numeric(input$drm_plot_lwd)
+         lwd = as.numeric(input$drm_plot_lwd),
+         xlim = c(0, as.numeric(input$xlim_upper))
     )
   })
   
