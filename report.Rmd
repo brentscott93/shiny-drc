@@ -6,6 +6,7 @@ params:
   cex: NA
   lwd: NA
   log_scale: NA
+  x_upper: NA
 ---
 
 ```{r setup, include=FALSE}
@@ -24,6 +25,7 @@ plot(params$drm_obj,
      cex = params$cex,
      cex.lab = params$cex,
      cex.axis = params$cex,
-     lwd = params$lwd)
+     lwd = params$lwd,
+     xlim = params$x_upper)
 ```
 

@@ -464,7 +464,8 @@ server <- function(input, output) {
       params <- list(drm_obj = fit(),
                      cex = input$drm_plot_cex,
                      lwd = input$drm_plot_lwd,
-                     log_scale = plot2_log_scale())
+                     log_scale = plot2_log_scale(),
+                     x_upper = input$xlim_upper)
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document
