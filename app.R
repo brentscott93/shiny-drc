@@ -4,7 +4,6 @@ library(shiny)
 library(shinythemes)
 library(shinyWidgets)
 library(tidyverse)
-#library(rlang)
 library(drc)
 library(readxl)
 library(biophysr)
@@ -378,12 +377,15 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                
                         
                         
-                      ) #tabPanel close
+                      ), #tabPanel close
                          
-                       
-                         
-                         
-                     
+                      tabPanel("Stats",
+                               h5("Parameter differences"),
+                               verbatimTextOutput("compParm_diff"),
+                               h5("Parameter ratios"),
+                               verbatimTextOutput("compParm_ratio")
+                               
+                      )
                       
                      ) #tabsetPanel close 
             )#mainPanel close
@@ -969,6 +971,19 @@ server <- function(input, output) {
              )
          }
      )
+     
+     
+     output$compParm_diff <- renderPrint({
+       req(fit())
+       n <- unique(fit()$parNames[[2]])
+       walk(n, ~compParm(fit(), strVal = .x, operator = "-"))
+     })
+     
+     output$compParm_ratio <- renderPrint({
+       req(fit())
+       n <- unique(fit()$parNames[[2]])
+       walk(n, ~compParm(fit(), strVal = .x, operator = "/"))
+     })
     
 }
 

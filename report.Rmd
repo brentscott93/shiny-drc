@@ -28,10 +28,6 @@ library(drc)
 ```
 
 
-```{r, echo=FALSE}
-summary(params$drm_obj)
-```
-
 ```{r, echo=FALSE, fig.width=10}
 plot(params$drm_obj,
              type = "all",
@@ -59,5 +55,23 @@ plot(params$drm_obj,
              bty = "l") #user
         box(lwd = params$box_lwd, bty = "l") #user
         
+```
+
+
+**Model Summary**
+```{r, echo=FALSE}
+summary(params$drm_obj)
+```
+
+**Parameter differences**
+```{r, echo = FALSE}
+n <- unique(params$drm_obj$parNames[[2]])
+walk(n, ~compParm(mod, strVal = .x, operator = "-"))
+```
+
+**Parameter ratios**
+```{r, echo = FALSE}
+n <- unique(params$drm_obj$parNames[[2]])
+walk(n, ~compParm(mod, strVal = .x, operator = "/"))
 ```
 
