@@ -28,7 +28,7 @@ library(drc)
 ```
 
 
-```{r, echo=FALSE, fig.width=10}
+```{r, echo=FALSE, fig.width=10, fig.height=7}
 plot(params$drm_obj,
              type = "all",
              #colors 
