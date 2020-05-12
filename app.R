@@ -50,8 +50,8 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
             radioGroupButtons(
                 inputId = "drc_data",
                 label = "Choose Data:",
-                choices = c("Upload my tidy data" = "user", 
-                            "Use built-in data" = "drc_data"),
+                choices = c("Upload" = "user", 
+                            "Built-in" = "drc_data"),
                 justified = TRUE,
                 checkIcon = list(
                     yes = tags$i(class = "fa fa-check-square", 
@@ -103,21 +103,21 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
             
            
             
-            div(style="display:inline-block; width: 220px", 
+            div(style="display:inline-block; width: 110px", 
                 actionBttn(
                 inputId = "fit_button",
-                label = "Fit & Plot",
+                label = "Fit",
                 style = "unite", 
                 color = "danger",
                 block = T)
             ),
-            div(style="display:inline-block; width: 220px",
+            div(style="display:inline-block; width: 110px",
             
             downloadBttn("report", 
-                         "Download .Rmd",
+                         "Save",
                          style = "unite", 
                          color = "default",
-                         block = T)
+                         block = F)
                      )
         ),
 
@@ -129,7 +129,7 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
            tabsetPanel(type = "tabs",
                        tabPanel("Plot",
                           plotOutput("plot1"),
-                          div(style="display: inline-block;vertical-align:top; width: 200px;",
+                          div(style="display: inline-block;vertical-align:top; width: 150px;",
                             conditionalPanel("input.response != null &&
                                              input.response.length > 0 ",
                                  awesomeRadio(
@@ -140,7 +140,7 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                   inline = TRUE, 
                                   checkbox = TRUE
                               ))),
-                          div(style="display: inline-block;vertical-align:top; width: 200px;",
+                          div(style="display: inline-block;vertical-align:top; width: 150px;",
                               conditionalPanel("input.response != null &&
                                              input.response.length > 0 ",
                                                sliderInput(
@@ -159,7 +159,7 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                       
                       tabPanel("Plot.drm",
                               
-                               div(style="display: inline-block;vertical-align:top; width: 260px;",
+                               div(style="display: inline-block;vertical-align:top; width: 250px;",
                                    dropdownButton(
                                      
                                      tags$h4("Select Colors"),
@@ -185,13 +185,13 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                                                   step = 0.01)),
                                      
                                      circle = TRUE, status = "primary",
-                                     icon = icon("palette"), width = "260px",
+                                     icon = icon("palette"), width = "250px",
                                      
                                      tooltip = tooltipOptions(title = "Click to choose plot colors")
                                    )
                                ), #divclose
                                
-                               div(style="display: inline-block;vertical-align:top; width: 260px;",
+                               div(style="display: inline-block;vertical-align:top; width: 250px;",
                                    dropdownButton(
                                      
                                      tags$h4("Select Aesthetics"),
@@ -233,12 +233,12 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                        step = 50
                                      ),
                                      circle = TRUE, status = "info",
-                                     icon = icon("shapes"), width = "260px",
+                                     icon = icon("shapes"), width = "250px",
                                      
                                      tooltip = tooltipOptions(title = "Click to choose aesthetics")
                                    )), #divclose
                                
-                               div(style="display: inline-block;vertical-align:top; width: 260px;",
+                               div(style="display: inline-block;vertical-align:top; width: 250px;",
                                    dropdownButton(
                                      
                                      tags$h4("Axes & Labels"),
@@ -297,13 +297,16 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                      ),
                                      
                                      circle = TRUE, status = "danger",
-                                     icon = icon("chart-bar"), width = "260px",
+                                     icon = icon("chart-bar"), width = "250px",
                                      
                                      tooltip = tooltipOptions(title = "Click for axis options")
                                      
                                    )), #divclose
                                
-                               div(style="display: inline-block;vertical-align:top; width: 260px;",
+                            
+                               plotOutput("drm_plot", width = "100%", height = "100%"),
+                               
+                               div(style="display: inline-block;vertical-align:top; width: 250px;",
                                    dropdownButton(
                                      
                                      tags$h4("Legend Options"),
@@ -334,13 +337,13 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                      uiOutput('legend_position'),
                                      
                                      circle = TRUE, status = "warning",
-                                     icon = icon("info-circle"), width = "260px",
+                                     icon = icon("info-circle"), width = "250px",
                                      
                                      tooltip = tooltipOptions(title = "Click to choose legend options")
                                    ) #dropdown button close
                                ), #divclose
-                               plotOutput("drm_plot", width = "100%", height = "100%"),
                                
+                               div(style="display: inline-block;vertical-align:top; width: 250px;",
                                dropdownButton(
                                  
                                  tags$h4("Plot Dimensions"),
@@ -366,10 +369,11 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                               block = T),
                                  
                                  circle = TRUE, status = "success",
-                                 icon = icon("ruler-combined"), width = "260px",
+                                 icon = icon("ruler-combined"), width = "250px",
                                  
                                  tooltip = tooltipOptions(title = "Click to choose plot colors")
                                )
+                               ) #divClose
                     
                                
                         
