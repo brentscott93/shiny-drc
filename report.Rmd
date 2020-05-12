@@ -29,6 +29,7 @@ library(drc)
 
 
 ```{r, echo=FALSE, fig.width=10, fig.height=7}
+par(mar = c(5, 6, 4, 2) + 0.1)
 plot(params$drm_obj,
              type = "all",
              #colors 

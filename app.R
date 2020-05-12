@@ -849,6 +849,7 @@ server <- function(input, output) {
     observe({
      output$drm_plot <- renderPlot(height = as.numeric(input$plot_height), width = as.numeric(input$plot_width),{
          req(fit())
+         par(mar = c(5, 6, 4, 2) + 0.1)
          plot(fit(), 
               type = "all",
               #colors 
