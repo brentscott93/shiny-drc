@@ -95,7 +95,7 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
             awesomeRadio(
                 inputId = "log_dose",
                 label = "Log Dose", 
-                choices = c("NULL", "ln", "10-logarithm"),
+                choices = c("NULL", "ln", "10-log"),
                 selected = "NULL",
                 inline = TRUE, 
                 checkbox = TRUE
@@ -129,7 +129,7 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
            tabsetPanel(type = "tabs",
                        tabPanel("Plot",
                           plotOutput("plot1"),
-                          div(style="display: inline-block;vertical-align:top; width: 150px;",
+                          div(style="display: inline-block;vertical-align:top; width: 250px;",
                             conditionalPanel("input.response != null &&
                                              input.response.length > 0 ",
                                  awesomeRadio(
@@ -140,7 +140,7 @@ ui <- fluidPage(#theme = shinytheme("flatly"),
                                   inline = TRUE, 
                                   checkbox = TRUE
                               ))),
-                          div(style="display: inline-block;vertical-align:top; width: 150px;",
+                          div(style="display: inline-block;vertical-align:top; width: 250px;",
                               conditionalPanel("input.response != null &&
                                              input.response.length > 0 ",
                                                sliderInput(
