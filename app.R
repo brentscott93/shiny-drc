@@ -27,11 +27,13 @@ aomisc_starters <- aomisc_starters[which(is_drc == TRUE)]
 
 #get 'biophysr' drc starters
 biophysr_starters <- lsf.str("package:biophysr")
-is_drc2 <- str_detect(biophysr_starters, "drc.")
+is_drc2 <- str_detect(biophysr_starters, "drc")
 biophysr_starters <- biophysr_starters[which(is_drc2 == TRUE)]
 
 #combine names of all self-starters
-all_drc_starters <- sort(c(mean_fun_abrv, aomisc_starters, biophysr_starters)) 
+all_drc_starters <- list(biophysr =  biophysr_starters,
+                         aomisc = aomisc_starters,
+                         drc = mean_fun_abrv) 
 
 #make id generator function
 generate_id <- function(x, data, input){
