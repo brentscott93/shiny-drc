@@ -2,11 +2,25 @@
 title: "Dose-Response Curves"
 output: html_document
 params:
-  drm_obj: NA
-  cex: NA
-  lwd: NA
-  log_scale: NA
-  x_upper: NA
+ drm_obj: NA
+ col: NA
+ lty: NA
+ lwd: NA
+ cex: NA
+ pch: NA
+ gridsize: NA
+ log: NA
+ cex.lab: NA
+ cex.axis: NA 
+ xlab: NA
+ xlim: NA
+ ylab: NA
+ ylim: NA
+ legend: NA
+ legendPos: NA
+ cex.legend: NA
+ box_lwd: NA
+             
 ---
 
 ```{r setup, include=FALSE}
@@ -19,13 +33,31 @@ summary(params$drm_obj)
 ```
 
 ```{r, echo=FALSE, fig.width=10}
-plot(params$drm_obj, 
-     col = TRUE, 
-     log = params$log_scale,
-     cex = params$cex,
-     cex.lab = params$cex,
-     cex.axis = params$cex,
-     lwd = params$lwd,
-     xlim = params$x_upper)
+plot(params$drm_obj,
+             type = "all",
+             #colors 
+             col = params$col,#user
+             #& aesthetics
+             lty = params$lty, #user - linetype
+             lwd = params$lwd, #line thickness
+             pch = params$pch, #user - points style
+             cex = params$cex, #user
+             gridsize = params$gridsize,#, #user - smoothnest of fit
+             # #axes & labels
+             log = params$log,#user
+             cex.lab = params$cex.lab, #user
+             cex.axis = params$cex.axis, #user
+             xlab = params$xlab, #user
+             xlim = params$xlim, #user
+             ylab = params$ylab, #user
+             ylim = params$ylim,#user
+             #legend
+             legend = params$legend, #user
+             #legendText = user_legendText(), #user
+             legendPos = params$legendPos, #user
+             cex.legend = params$cex.legend, #user
+             bty = "l") #user
+        box(lwd = params$box_lwd, bty = "l") #user
+        
 ```
 
